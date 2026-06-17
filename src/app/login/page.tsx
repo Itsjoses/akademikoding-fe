@@ -1,0 +1,39 @@
+import LoginForm from "@/components/auth/LoginForm";
+
+export default function LoginPage() {
+  return (
+    <main className="min-h-screen flex">
+      {/* Left panel - form */}
+      <div className="flex flex-1 items-center justify-center px-8 py-12">
+        <LoginForm />
+      </div>
+
+      {/* Right panel - decorative */}
+      <div className="hidden lg:flex flex-1 items-center justify-center bg-violet-600 px-16 py-12">
+        <div className="max-w-md text-white">
+          <div className="text-4xl font-bold leading-tight mb-4">
+            Belajar coding jadi lebih mudah &amp; menyenangkan.
+          </div>
+          <p className="text-violet-200 text-base leading-relaxed">
+            Bergabung dengan ribuan developer yang sudah memulai perjalanan
+            mereka bersama AkademiKoding.
+          </p>
+          <div className="mt-10 flex flex-col gap-4">
+            {[
+              "Kurikulum terstruktur dari dasar hingga mahir",
+              "Proyek nyata yang bisa kamu masukkan ke portofolio",
+              "Komunitas aktif yang siap bantu kamu",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">
+                  ✓
+                </span>
+                <span className="text-sm text-violet-100">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
