@@ -1,8 +1,7 @@
 "use client";
-
-import Link from "next/link";
-import { useState } from "react";
 import { Eye, EyeOff, LogIn } from "lucide-react";
+import Link from "next/link";
+import React, { useState } from "react";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,63 +13,56 @@ export default function LoginForm() {
     await new Promise((r) => setTimeout(r, 1000));
     setLoading(false);
   }
-
   return (
     <div className="w-full max-w-sm">
       <div className="mb-8">
-        <Link href="/" className="font-mono text-xl font-bold text-neutral-900">
+        <Link
+          href={""}
+          className="font-mono text-xl font-bold text-neutral-900"
+        >
           Akademi<span className="text-violet-600">Koding</span>
         </Link>
         <h1 className="mt-6 text-2xl font-semibold text-neutral-900">
           Selamat datang kembali
         </h1>
         <p className="mt-1 text-sm text-neutral-500">
-          Masuk ke akun kamu untuk melanjutkan belajar.
+          Masuk ke akun kamu untuk melanjutkan belajar
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
-          <label className="text-sm font-medium text-neutral-700">
+          <label htmlFor="" className="text-sm text-neutral-900 font-medium">
             Email
           </label>
           <input
             type="email"
             required
-            placeholder="kamu@email.com"
-            className="w-full rounded-lg border border-neutral-200 px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-violet-500 focus:ring-3 focus:ring-violet-100 transition"
+            placeholder="email@gmail.com"
+            className="w-full rounded-lg px-3.5 py-2.5 border border-neutral-200 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-violet-500 focus:ring-violet-100 transition "
           />
         </div>
-
         <div className="flex flex-col gap-1.5">
-          <div className="flex items-center justify-between">
-            <label className="text-sm font-medium text-neutral-700">
-              Password
-            </label>
-            <Link
-              href="/forgot-password"
-              className="text-xs text-violet-600 hover:text-violet-700 transition"
-            >
-              Lupa password?
-            </Link>
-          </div>
+          <label htmlFor="" className="text-sm text-neutral-900 font-medium">
+            Password
+          </label>
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               required
-              placeholder="••••••••"
+              placeholder="Min. 8 karakter"
+              minLength={8}
               className="w-full rounded-lg border border-neutral-200 px-3.5 py-2.5 pr-10 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none focus:border-violet-500 focus:ring-3 focus:ring-violet-100 transition"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition hover:cursor-pointer"
             >
               {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
             </button>
           </div>
         </div>
-
         <button
           type="submit"
           disabled={loading}
@@ -81,10 +73,9 @@ export default function LoginForm() {
           ) : (
             <LogIn size={16} />
           )}
-          {loading ? "Memproses..." : "Masuk"}
+          {loading ? "M emproses..." : "Masuk"}
         </button>
       </form>
-
       <p className="mt-6 text-center text-sm text-neutral-500">
         Belum punya akun?{" "}
         <Link

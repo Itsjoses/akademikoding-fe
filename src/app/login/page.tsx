@@ -1,6 +1,17 @@
 import LoginForm from "@/components/auth/LoginForm";
+import SideAuth, { SideAuthProps } from "@/components/auth/SideAuth";
 
 export default function LoginPage() {
+  const sideAuthData: SideAuthProps = {
+    title: "Mulai perjalanan coding kamu hari ini.",
+    description:
+      "Daftar dan langsung akses ratusan materi belajar yang dirancang khusus untuk pemula hingga profesional.",
+    listPoints: [
+      "Akses materi sepenuhnya",
+      "Sertifikat penyelesaian untuk setiap kursus",
+      "Belajar kapan saja dan di mana saja",
+    ],
+  };
   return (
     <main className="min-h-screen flex">
       {/* Left panel - form */}
@@ -10,7 +21,12 @@ export default function LoginPage() {
 
       {/* Right panel - decorative */}
       <div className="hidden lg:flex flex-1 items-center justify-center bg-violet-600 px-16 py-12">
-        <div className="max-w-md text-white">
+        <SideAuth
+          title={sideAuthData.title}
+          description={sideAuthData.description}
+          listPoints={sideAuthData.listPoints}
+        />
+        {/* <div className="max-w-md text-white">
           <div className="text-4xl font-bold leading-tight mb-4">
             Belajar coding jadi lebih mudah &amp; menyenangkan.
           </div>
@@ -32,7 +48,7 @@ export default function LoginPage() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </main>
   );
